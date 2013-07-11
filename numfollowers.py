@@ -1,5 +1,7 @@
 # Grabs N people randomly from the directory using reservoir sampling, then
-# counts the number of followers they have.
+# counts the number of followers they have.  I never got to run this script
+# to completion because Quora blocked the script before I added the rate
+# limits.
 
 import mechanize
 import random
@@ -24,7 +26,7 @@ leaf = re.compile("-") # Separator between first and last names!
 internalNode = re.compile("directory/page")
 fnum = re.compile("Followers.*>([0-9]+)<.*Following")
 
-# We use this function to open pages instead of openPage to avoid putting a
+# We use this function to open pages instead of br.open to avoid putting a
 # high load on Quora's servers.  This means the script takes a lot longer
 # though - estimated time 1 day for 2 million users.  (21400 page accesses
 # * 4 seconds per access = 23.8 hours.)
